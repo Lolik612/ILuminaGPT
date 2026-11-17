@@ -1,0 +1,15 @@
+# Запуск: положи model.gguf в server/models/ и выполни  docker compose up -d
+# Ключ (необязательно): создай рядом файл .env со строкой  API_KEY=твой_секрет
+services:
+  lumina:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./models:/models
+    command: >
+      -m /models/model.gguf
+      --host 0.0.0.0 --port 8080
+      -c 4096
+      --api-key ${API_KEY:-}

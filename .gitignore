@@ -1,0 +1,14 @@
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# серверная часть: модели и секреты не коммитим
+server/models/
+server/.env
+*.gguf
